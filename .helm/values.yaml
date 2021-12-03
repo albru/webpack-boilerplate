@@ -1,0 +1,16 @@
+namespace: $K8S_NAMESPACE
+
+app:
+  name: webpack-boilerplate
+  replicaCount: 1
+
+  frontend:
+    port: 80
+    image: $DOCKER_IMAGE_FRONTEND
+    imagePullPolicy: Always
+    env:
+      DEBUG: 0
+
+  ingress:
+    name: webpack-boilerplate
+    domainSuffix: "-$K8S_CLUSTER.webpack.boilerplate"

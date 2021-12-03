@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{ .Values.app.name }}-ingress"
+  namespace: {{ .Values.namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  tls:
+    - hosts:
+        - "{{ .Values.app.ingress.name }}{{ .Values.app.ingress.domainSuffix }}"
+  rules:
+    - host: "{{ .Values.app.ingress.name }}{{ .Values.app.ingress.domainSuffix }}"
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: "{{ .Values.app.name }}-service"
+              servicePort: {{ .Values.app.frontend.port }}

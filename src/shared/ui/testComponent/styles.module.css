@@ -1,0 +1,19 @@
+@import '../../../app/styles/colors.module.css';
+
+.red {
+  font-size: 25px;
+  background-color: var(--errorRed);
+  color: black;
+}
+
+.yellow {
+  font-size: 25px;
+  background-color: yellow;
+  color: black;
+}
+
+@media (min-resolution: 2dppx) {
+  .yellow {
+    background-image: url('https://test.com');
+  }
+}

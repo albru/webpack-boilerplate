@@ -1,0 +1,11 @@
+dist/*
+public/*
+docs/*
+templates/*
+coverage/*
+webpack/*
+src/react-app-env.d.ts
+src/serviceWorker.ts
+setupTests.ts
+.eslintrc.js
+*.config.js

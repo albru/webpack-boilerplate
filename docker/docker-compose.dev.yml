@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: webpack-boilerplate
+    image: webpack-boilerplate
+    build:
+      context: ..
+      target: development
+    volumes:
+      - ../src:/app/src
+    ports:
+      - "${PORT}:${PORT}"

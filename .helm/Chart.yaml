@@ -1,0 +1,4 @@
+apiVersion: v1
+description: webpack-boilerplate
+name: webpack-boilerplate
+version: 1.0.0

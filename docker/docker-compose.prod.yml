@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: webpack-boilerplate
+    image: "${DOCKER_REGISTRY}.${ARTIFACTORY_URL}/${APP_NAME}:${APP_VERSION}"
+    build:
+      context: ..
+      target: production

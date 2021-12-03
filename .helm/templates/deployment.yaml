@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.app.name }}-deployment"
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.app.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+      # Frontend Container
+      - name: "frontend"
+        image: "{{ .Values.app.frontend.image }}"
+        imagePullPolicy: {{ .Values.app.frontend.imagePullPolicy }}
+        ports:
+          - containerPort: {{ .Values.app.frontend.port }}
+            protocol: TCP
+        {{- if or $.Values.app.frontend.env $.Values.app.frontend.envSecrets }}
+        env:
+          {{- range $key, $value := $.Values.app.frontend.env }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+          {{- end }}
+        {{- end }}
