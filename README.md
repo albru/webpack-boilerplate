@@ -1,3 +1,5 @@
+# The setup is working, but not finished yet, the readiness is about 85%
+
 # webpack-boilerplate
 
 ## Overview: 
